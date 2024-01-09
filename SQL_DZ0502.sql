@@ -1,4 +1,4 @@
-/* Выберите товары с минимальной ценой (подзапросом), 2 варианта подзапроса.*/ 
+/* Р’С‹Р±РµСЂРёС‚Рµ С‚РѕРІР°СЂС‹ СЃ РјРёРЅРёРјР°Р»СЊРЅРѕР№ С†РµРЅРѕР№ (РїРѕРґР·Р°РїСЂРѕСЃРѕРј), 2 РІР°СЂРёР°РЅС‚Р° РїРѕРґР·Р°РїСЂРѕСЃР°.*/ 
 
 select *
 from [Warehouse].[StockItems_Archive]
@@ -7,11 +7,11 @@ from [Warehouse].[StockItems_Archive]
 select [StockItemName]
 from [Warehouse].[StockItems_Archive]
 where [UnitPrice] in (select min([UnitPrice])
-                      from [Warehouse].[StockItems_Archive]) --1 вариант
+                      from [Warehouse].[StockItems_Archive]) --1 РІР°СЂРёР°РЅС‚
 
 select [StockItemName]
 from [Warehouse].[StockItems_Archive]
 where [UnitPrice] = (select min([UnitPrice])
-                      from [Warehouse].[StockItems_Archive]) --2 вариант
+                      from [Warehouse].[StockItems_Archive]) --2 РІР°СЂРёР°РЅС‚
 
 

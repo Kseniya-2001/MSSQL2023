@@ -16,7 +16,7 @@ FROM Sales.Orders as o
 INNER JOIN Sales.OrderLines as l ON o.OrderID=l.OrderID
 where UnitPrice>100 or
       Quantity>20 
-ORDER BY 3,4,OrderDate -- 1 вариант
+ORDER BY 3,4,OrderDate -- 1  вариант
 
 SELECT o.OrderID,
        DATENAME(month, OrderDate) as MonthName,

@@ -1,8 +1,8 @@
 /*10 последних по дате продаж с именем клиента и именем 
 сотрудника, который оформил заказ.*/
 
-select top(10) po.PurchaseOrderID, s.SupplierName, p.FullName 
-from [Purchasing].[PurchaseOrders] as po
-inner join [Application].[People] as p on po.LastEditedBy = p.PersonID
-inner join [Purchasing].[Suppliers] as s on s.SupplierID = po.SupplierID
-order by po.PurchaseOrderID desc
+select top(10) so.OrderID, sc.CustomerName, ap.FullName
+from [Sales].[Orders] as so
+left join [Sales].[Customers] as sc on sc.CustomerID = so.CustomerID
+left join [Application].[People] as ap on ap.PersonID = so.SalespersonPersonID
+order by so.OrderID desc

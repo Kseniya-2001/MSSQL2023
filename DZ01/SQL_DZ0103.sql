@@ -5,14 +5,14 @@
 запроса с постраничной выборкой пропустив первую 1000 и отобразив следующие 100 записей. 
 Соритровка должна быть по номеру квартала, трети года, дате продажи.*/ 
 
-declare @date datetime = '
+declare @date datetime 
 
 SELECT o.OrderID,
        c.[CustomerName],
        DATENAME(month, OrderDate) as MonthName,
 	   DATEPART(QUARTER, OrderDate) AS quarter,
 	   (MONTH(OrderDate)-1)/4+1 as Third, 
-	   OrderDate,
+	   CONVERT(varchar, OrderDate, 3) as OrderDate,
 	   UnitPrice,
 	   Quantity
 FROM Sales.Orders as o
@@ -27,7 +27,7 @@ SELECT o.OrderID,
        DATENAME(month, OrderDate) as MonthName,
 	   DATEPART(QUARTER, OrderDate) AS quarter,
 	   (MONTH(OrderDate)-1)/4+1 as Third, 
-	   OrderDate,
+	   CONVERT(varchar, OrderDate, 3) as OrderDate,
 	   UnitPrice,
 	   Quantity
 FROM Sales.Orders as o

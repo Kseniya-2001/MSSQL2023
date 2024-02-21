@@ -5,7 +5,10 @@
 запроса с постраничной выборкой пропустив первую 1000 и отобразив следующие 100 записей. 
 Соритровка должна быть по номеру квартала, трети года, дате продажи.*/ 
 
+declare @date datetime = '
+
 SELECT o.OrderID,
+       c.[CustomerName],
        DATENAME(month, OrderDate) as MonthName,
 	   DATEPART(QUARTER, OrderDate) AS quarter,
 	   (MONTH(OrderDate)-1)/4+1 as Third, 
@@ -14,11 +17,13 @@ SELECT o.OrderID,
 	   Quantity
 FROM Sales.Orders as o
 INNER JOIN Sales.OrderLines as l ON o.OrderID=l.OrderID
+left join [Sales].[Customers] as c on c.CustomerID = o.CustomerID
 where UnitPrice>100 or
       Quantity>20 
 ORDER BY 3,4,OrderDate -- 1  вариант
 
 SELECT o.OrderID,
+       c.[CustomerName],
        DATENAME(month, OrderDate) as MonthName,
 	   DATEPART(QUARTER, OrderDate) AS quarter,
 	   (MONTH(OrderDate)-1)/4+1 as Third, 
@@ -27,6 +32,7 @@ SELECT o.OrderID,
 	   Quantity
 FROM Sales.Orders as o
 INNER JOIN Sales.OrderLines as l ON o.OrderID=l.OrderID
+left join [Sales].[Customers] as c on c.CustomerID = o.CustomerID
 where UnitPrice>100 or
       Quantity>20 
 ORDER BY 3,4,OrderDate 

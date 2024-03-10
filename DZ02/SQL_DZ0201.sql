@@ -1,4 +1,4 @@
-/*1. Довставлять в базу 5 записей используя insert в таблицу Customers или Suppliers*/
+/*1. Ж’РѕРІСЃС‚Р°РІР»В¤С‚СЊ РІ Р±Р°Р·Сѓ 5 Р·Р°РїРёСЃРµР№ РёСЃРїРѕР»СЊР·СѓВ¤ insert РІ С‚Р°Р±Р»РёС†Сѓ Customers РёР»Рё Suppliers*/
 
 INSERT INTO [Sales].[Customers]
            ([CustomerName]
